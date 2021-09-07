@@ -18,3 +18,21 @@ Whenever there is issue to record employee this project helps in solving it.
 Because this project uses a beginner's algorithm, it should be simple to educate newcomers how to solve it.
 ## How
 This project implemented using structure, pointers, other functionalities of C.
+
+## SWOT- Strengths, and Weakness, Opportunities Threats
+### Strengths
+- User Friendly.
+- Modular Based Programs.
+- Able to add, update and display employee records
+
+### Weakness
+-  Consoled Based C project.
+- Poor UI Design.
+
+### Opportunities
+-  This project can be extended by adding additional features like Search employee,remove employee,and other personal details like salary,holiday,working days etc...
+- Can make the Application using other programming languages.
+
+### Threats
+- There are many functions in employee management system  .
+
