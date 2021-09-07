@@ -34,5 +34,27 @@ This project implemented using structure, pointers, other functionalities of C.
 - Can make the Application using other programming languages.
 
 ### Threats
-- There are many functions in employee management system  .
+-There are many many application to maintain employee record system in the market which were build using java in android studio.
+
+Basic requirements that are very essential are:
+* Existing employee details.
+* gcc compiler with a good system.
+* Any of the two linux/windows.
+
+## Detail requirements
+### High Level Requirements
+| High Level Requirements      | Description |
+| ----------- | ----------- |
+| HLR1      | Adding all details of employee    |
+| HLR2   | update extra activities of employee|
+| HLR3   | Make separate files to view details|
+
+### Low Level Requirements
+| Low Level Requirements      | Description |
+| ----------- | ----------- |
+| LLR1      | Create file    |
+| LLR2   | update employee details|
+| LLR3   | View employee details|
+
+
 
