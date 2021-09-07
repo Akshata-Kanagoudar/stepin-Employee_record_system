@@ -1,5 +1,6 @@
-https://github.com/sultanbepari/STEPin_Restaurant_Food_Odering_Management_System/tree/main/1_Requirements#requirements
-Introduction
+# Requirements 
+
+## Introduction 
 
 In this undertaking we are attempted to show the working of some significant errands in worker record framework and cover the fundamental usefulness of a representative record arrangement of Office, similar to Worker and Division the Data by utilizing information structure. 
 
