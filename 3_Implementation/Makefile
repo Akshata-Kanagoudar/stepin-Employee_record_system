@@ -1,71 +1,30 @@
-# Name of the project
-PROJECT_NAME = Employee_Record_System
-
-# Output directory
-BUILD = build
-
-# All source code files
+PROJ_NAME = Employee_Record_System
 SRC = main.c\
 src/record.c
-
-
-
-# All test source files
-TEST_SRC = src/record.c
-Test/test.c\
+TEST_SRC = src/record.c\
+test/test.c\
 unity/unity.c 
+  
 
-
-
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).exe
-
-# All include folders with header files
+#To check if the OS is windows or linux and set the executable file extension and delete command accordingly
+ifdef OS
+   RM = del /q
+   FixPath = $(subst /,\,$1)
+   EXEC = exe
+else
+   ifeq ($(shell uname), Linux)
+      RM = rm -rf
+      FixPath = $1
+	  EXEC = out
+   endif
+endif
+TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).$(EXEC)
 INC	= -Iinc\
 -Iunity
 
-#Library Inlcudes
-#if working with CUnit 
-#INCLUDE_LIBS = -lcunit
-INCLUDE_LIBS =
-
-# Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME)
-
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
-
-# Default target built
-$(PROJECT_NAME):all
-
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all
-
-all: $(SRC) $(BUILD)
-	gcc $(INC) $(SRC) -o $(PROJECT_OUTPUT).exe
-
-# Call `make run` to run the application
-run:$(PROJECT_NAME)
-	./$(PROJECT_OUTPUT).exe
-
-# Document the code using Doxygen
-doc:
-	make -C ./documentation
-
-# Build and run the unit tests
-test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
-	./$(TEST_OUTPUT)
-#Coverage
-coverageCheck:$(BUILD)
-	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
-	./$(TEST_OUTPUT)
-
-# Remove all the built files, invoke by `make clean`
-clean:
-	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
-
-all:
+all:$(SRC) $(BUILD)
 	gcc $(SRC) $(INC) -o $(call FixPath,$(PROJ_NAME).$(EXEC)) -lm
+
 
 run: all
 	./$(call FixPath,$(PROJ_NAME).$(EXEC))
@@ -78,7 +37,17 @@ build_test:
 run_test: build_test
 	./$(call FixPath,$(PROJ_NAME).$(EXEC))
 
+analyze: test memcheck staticcheck coverage sanitize_check
 
+staticcheck:
+	cppcheck --enable=all -iunity .
+
+memcheck:
+	valgrind ./$(TEST_OUTPUT)
+
+sanitize_check:
+	gcc -fsanitize=address -fno-omit-frame-pointer $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) 
+	./$(TEST_OUTPUT)
 
 clean:
 	$(RM) $(call FixPath,$(PROJ_NAME).$(EXEC))
