@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "record.h"
-char * arrr = "C:\\Users\\Akshata\\file4.txt";
+char * arrr = "file4.txt";
 
 FILE *fp, *fp1;
 
