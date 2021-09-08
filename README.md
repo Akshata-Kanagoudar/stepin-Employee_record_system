@@ -6,3 +6,4 @@
 [![cppcheck-action](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/cppcheck.yml)
 [![Contribution Check - Git Inspector](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/gitinspector.yml)
 [![Unit Testing - Unity](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/unity.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/unity.yml)
+[![CodeQuality Dynamic Code Analysis Valgrind](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/Valgrind.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/Valgrind.yml)
