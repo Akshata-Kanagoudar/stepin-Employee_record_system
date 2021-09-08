@@ -39,7 +39,6 @@ int  main()
     //RUN_TEST(test_console_color);
     RUN_TEST(test_update);
     RUN_TEST(test_display);
-   ;
 
     return UNITY_END();
 }

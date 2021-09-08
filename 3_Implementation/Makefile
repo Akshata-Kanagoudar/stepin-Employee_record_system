@@ -1,26 +1,68 @@
-PROJ_NAME = Employee_Record_System
+# Name of the project
+PROJECT_NAME = Employee_Record_System
+
+# Output directory
+BUILD = build
+
+# All source code files
 SRC = main.c\
 src/record.c
-TEST_SRC = src/record.c\
-test/test_record.c\
-unity/unity.c 
-  
 
-#To check if the OS is windows or linux and set the executable file extension and delete command accordingly
-ifdef OS
-   RM = del /q
-   FixPath = $(subst /,\,$1)
-   EXEC = exe
-else
-   ifeq ($(shell uname), Linux)
-      RM = rm -rf
-      FixPath = $1
-	  EXEC = out
-   endif
-endif
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).$(EXEC)
+
+
+# All test source files
+TEST_SRC = src/record.c
+Test/test.c\
+unity/unity.c 
+
+
+
+TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).exe
+
+# All include folders with header files
 INC	= -Iinc\
 -Iunity
+
+#Library Inlcudes
+#if working with CUnit 
+#INCLUDE_LIBS = -lcunit
+INCLUDE_LIBS =
+
+# Project Output name
+PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME)
+
+# Document files
+DOCUMENTATION_OUTPUT = documentation/html
+
+# Default target built
+$(PROJECT_NAME):all
+
+# Run the target even if the matching name exists
+.PHONY: run clean test doc all
+
+all: $(SRC) $(BUILD)
+	gcc $(INC) $(SRC) -o $(PROJECT_OUTPUT).exe
+
+# Call `make run` to run the application
+run:$(PROJECT_NAME)
+	./$(PROJECT_OUTPUT).exe
+
+# Document the code using Doxygen
+doc:
+	make -C ./documentation
+
+# Build and run the unit tests
+test:$(BUILD)
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
+	./$(TEST_OUTPUT)
+#Coverage
+coverageCheck:$(BUILD)
+	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
+	./$(TEST_OUTPUT)
+
+# Remove all the built files, invoke by `make clean`
+clean:
+	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
 
 all:
 	gcc $(SRC) $(INC) -o $(call FixPath,$(PROJ_NAME).$(EXEC)) -lm
