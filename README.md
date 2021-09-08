@@ -3,3 +3,4 @@
 [![Code Grade](https://www.code-inspector.com/project/27497/score/svg)](https://www.code-inspector.com)
 [![Code Grade](https://www.code-inspector.com/project/27497/status/svg)](https://www.code-inspector.com)
 [![C/C++ CI](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/c-build.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/c-build.yml)
+[![cppcheck-action](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/Akshata-Kanagoudar/stepin-Employee_record_system/actions/workflows/cppcheck.yml)
